@@ -12,4 +12,17 @@ fs.readFile('input.txt', function (err, data) {
 var data = fs.readFileSync('input.txt');
 console.log("Synchronous read: " + data.toString());
 
+console.log("Going to get file info!");
+fs.stat('input.txt', function (err, stats) {
+   if (err) {
+       return console.error(err);
+   }
+   console.log(stats);
+   console.log("Got file info successfully!");
+   
+   // Check file type
+   console.log("isFile ? " + stats.isFile());
+   console.log("isDirectory ? " + stats.isDirectory());    
+});
+
 console.log("Program Ended");
