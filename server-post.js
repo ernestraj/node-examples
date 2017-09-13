@@ -7,10 +7,10 @@ var multer  = require('multer');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(multer({ dest: '/tmp/'}));
+app.use(multer({ dest: '/tmp/'}).single('photo')); //.single and .array is fix for uploading files
 
-app.get('/index.htm', function (req, res) {
-   res.sendFile( __dirname + "/" + "index.htm" );
+app.get('/index3.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "index3.html" );
 })
 
 app.post('/file_upload', function (req, res) {
